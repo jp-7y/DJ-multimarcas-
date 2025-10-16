@@ -66,7 +66,7 @@
       justify-content:center;
     }
 
-    /* key svg wrapper */
+    /* key wrapper */
     .key-wrap{
       width:110px;
       height:110px;
@@ -189,31 +189,7 @@
     <section class="hero" aria-label="Apresentação">
       <div class="left">
         <div class="key-wrap" aria-hidden="true">
-          <!-- Inline SVG: chave dourada realista -->
-          <svg width="82" height="82" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chave dourada">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#ffdf8b"/>
-                <stop offset="0.6" stop-color="#d4af37"/>
-                <stop offset="1" stop-color="#a67c17"/>
-              </linearGradient>
-              <filter id="s" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="2.4" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-
-            <!-- key body -->
-            <g filter="url(#s)">
-              <path d="M456 56c-58 0-105 47-105 105 0 17 4 33 11 47L284 285c-46-9-95 15-119 57-35 61 7 138 78 138 38 0 69-21 86-50l60-21 25 25c7 7 18 7 25 0l10-10c7-7 7-18 0-25L374 336l27-27 44 1c11 0 21-4 29-11 30-27 39-75 22-113-22-48-66-82-115-93 9-36 46-63 85-63 7 0 13-6 13-13V69c0-7-6-13-13-13z" fill="url(#g1)"/>
-              <!-- teeth -->
-              <rect x="104" y="248" width="48" height="28" rx="4" fill="#cf9e2f" />
-              <rect x="152" y="248" width="32" height="16" rx="3" fill="#b68218" />
-              <!-- round handle -->
-              <circle cx="428" cy="112" r="46" fill="#ffd57f" stroke="#a37512" stroke-width="6" />
-              <circle cx="428" cy="112" r="24" fill="#fff9e6" opacity="0.12"/>
-            </g>
-          </svg>
+          <img src="chave.png" alt="Chave dourada" style="width:100px;filter:drop-shadow(0 0 10px #d4af37);border-radius:12px;">
         </div>
       </div>
 
@@ -267,4 +243,4 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
-  </html>
+</html>

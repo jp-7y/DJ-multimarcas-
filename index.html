@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ Multimarcas 👟</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
+    /* Fundo e estilo geral */
     body {
       background: linear-gradient(135deg, #000000, #1a1a1a);
       color: #FFD700;
       font-family: 'Poppins', sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
+    /* Logotipo */
     .logo {
       font-size: 3rem;
       font-weight: 700;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
       letter-spacing: 3px;
+      opacity: 0;
+      animation: fadeInDown 1.5s ease forwards;
     }
 
+    /* Subtítulo */
+    .subtitle {
+      color: #ccc;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 0.5s;
+    }
+
+    /* Texto principal */
+    .description {
+      max-width: 600px;
+      margin: 1.5rem auto;
+      color: #ddd;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeInUp 2s ease forwards 1s;
+    }
+
+    /* Botão */
     .button {
       background: linear-gradient(90deg, #FFD700, #b8860b);
       color: black;
@@ -28,42 +59,72 @@
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      opacity: 0;
+      animation: fadeInUp 2s ease forwards 1.5s, pulse 2s infinite 3s;
     }
 
     .button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
     }
 
     footer {
-      color: #aaa;
-      margin-top: 50px;
+      color: #888;
       font-size: 0.9rem;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 2s;
+    }
+
+    /* ======= ANIMAÇÕES ======= */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+      50% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
+      100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
     }
   </style>
 </head>
-<body>
 
-  <div class="flex flex-col items-center justify-center min-h-screen space-y-10">
+<body>
+  <main class="flex flex-col items-center justify-center text-center px-6 py-10">
     <h1 class="logo">DJ 👟 Multimarcas</h1>
-    <p class="text-lg text-gray-300 max-w-lg">
-      Os melhores tênis das marcas que você ama. Estilo, conforto e autenticidade em cada passo.
+    <p class="subtitle">Estilo, conforto e originalidade em cada passo.</p>
+
+    <p class="description">
+      Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, 
+      com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências 
+      do momento, para que você caminhe com estilo e confiança.  
+      <br><br>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade 
+      para escolher o par perfeito!
     </p>
 
-    <a id="instaBtn" 
-       href="#" 
-       class="button"
-       target="_blank">
-       Ir para o Instagram
+    <a id="instaBtn" href="#" target="_blank" class="button">
+      Ver no Instagram 📱
     </a>
+  </main>
 
-    <footer>
-      © 2025 DJ Multimarcas. Todos os direitos reservados.
-    </footer>
-  </div>
+  <footer>
+    © 2025 DJ Multimarcas — Todos os direitos reservados.
+  </footer>
 
   <script>
+    // Redirecionamento com mensagem automática
     document.getElementById('instaBtn').addEventListener('click', function(e) {
       e.preventDefault();
       const mensagem = encodeURIComponent("Olá, quais tênis tem disponível no momento?");
@@ -71,6 +132,5 @@
       window.open(url, '_blank');
     });
   </script>
-
 </body>
 </html>

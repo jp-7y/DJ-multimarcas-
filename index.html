@@ -1,132 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>DJ Multimarcas 👟</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    /* ======= ESTILO GERAL ======= */
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      font-family: 'Poppins', sans-serif;
-      color: #FFD700;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* --- Reset e base --- */
+    :root{
+      --gold: #FFD700;
+      --gold-dark: #b8860b;
+      --bg1: #000;
+      --bg2: #0f0f0f;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      color: var(--gold);
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
     }
 
-    main {
-      text-align: center;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1rem;
+    /* --- Container principal: centraliza verticalmente sem deixar espaço em branco --- */
+    main{
+      flex:1 0 auto;               /* ocupa espaço disponível */
+      display:flex;
+      flex-direction:column;
+      justify-content:center;      /* centra vertical */
+      align-items:center;
+      text-align:center;
+      padding: 28px 20px;
+      box-sizing:border-box;
+      gap:18px;
     }
 
-    /* ======= LOGO ======= */
-    .logo {
-      font-size: 3rem;
-      font-weight: 700;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-      letter-spacing: 3px;
-      opacity: 0;
-      animation: fadeInDown 1.5s ease forwards;
+    /* --- Título com brilho e sombra (igual ao screenshot) --- */
+    .title {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight:800;
+      color: #fff;
+      text-shadow:
+        0 1px 0 rgba(0,0,0,0.6),
+        0 6px 18px rgba(255,255,255,0.08),
+        0 0 28px rgba(255,255,255,0.06);
+      letter-spacing: -0.5px;
+      margin:0;
+      padding:0;
+      opacity:0;
+      transform: translateY(-8px);
+      animation: appear .9s ease forwards;
     }
 
-    /* ======= SUBTÍTULO ======= */
+    /* --- Subtítulo --- */
     .subtitle {
-      color: #ccc;
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 0.5s;
+      color: #dcdcdc;
+      margin:0;
+      font-size: clamp(12px, 2.4vw, 16px);
+      opacity:0;
+      transform: translateY(-4px);
+      animation: appear .9s ease forwards .15s;
     }
 
-    /* ======= DESCRIÇÃO ======= */
-    .description {
-      max-width: 600px;
-      margin: 1.5rem auto;
-      color: #ddd;
-      line-height: 1.7;
-      opacity: 0;
-      animation: fadeInUp 2s ease forwards 1s;
+    /* --- Removida a imagem branca (não existe bloco aqui) --- */
+
+    /* --- Texto descritivo --- */
+    .desc {
+      max-width:760px;
+      width:100%;
+      color:#ddd;
+      line-height:1.7;
+      font-size: clamp(14px, 2.2vw, 16px);
+      margin-top: 6px;
+      margin-bottom: 6px;
+      padding: 0 8px;
+      opacity:0;
+      transform: translateY(6px);
+      animation: appear .9s ease forwards .3s;
     }
 
-    /* ======= BOTÃO ======= */
-    .button {
-      background: linear-gradient(90deg, #FFD700, #b8860b);
-      color: black;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-      opacity: 0;
-      animation: fadeInUp 2s ease forwards 1.5s, pulse 2s infinite 3s;
+    /* --- Linha do balão de chat + cor e destaque --- */
+    .chatline {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      color:#e6e6e6;
+      font-size:15px;
+      margin-top:6px;
+      opacity:0;
+      transform: translateY(6px);
+      animation: appear .9s ease forwards .45s;
+    }
+    .bubble {
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.08);
+      display:inline-grid;
+      place-items:center;
+      color:#fff;
+      box-shadow:0 6px 20px rgba(0,0,0,0.6);
     }
 
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+    /* --- Botão branco arredondado com brilho igual ao seu print --- */
+    .insta-btn{
+      display:inline-block;
+      background: #fff;
+      color:#111;
+      padding:14px 34px;
+      font-weight:700;
+      font-size:16px;
+      border-radius:36px;
+      text-decoration:none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+      margin-top: 8px;
+      opacity:0;
+      transform: translateY(10px);
+      animation: appear .9s ease forwards .6s;
+    }
+    .insta-btn:hover{
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.65), 0 0 50px rgba(255,215,0,0.08);
     }
 
-    /* ======= RODAPÉ ======= */
-    footer {
-      color: #888;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 10px 0;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 2s;
+    /* --- Rodapé discreto similar ao print --- */
+    footer{
+      flex-shrink:0;
+      text-align:center;
+      color:#9a9a9a;
+      font-size:13px;
+      padding:14px 10px;
+      border-top: 1px solid rgba(255,255,255,0.02);
+      background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.04));
     }
 
-    /* ======= ANIMAÇÕES ======= */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* --- Aparecer suave (aplica a vários elementos) --- */
+    @keyframes appear {
+      to { opacity:1; transform:none; }
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* --- Pequenina animação de brilho por cima do título (opcional, sutil) --- */
+    .title::after{
+      content:'';
+      position:absolute;
+      left:0;
+      right:0;
+      top:-6%;
+      height:140%;
+      pointer-events:none;
+      background: linear-gradient(90deg, rgba(255,255,255,0.00) 0%,
+                                           rgba(255,255,255,0.06) 45%,
+                                           rgba(255,255,255,0.00) 100%);
+      mix-blend-mode: screen;
+      transform: translateX(-120%);
+      animation: shine 3.2s linear infinite;
+      border-radius:12px;
+      opacity:0.08;
+    }
+    @keyframes shine {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(120%); }
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
-      50% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
-      100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+    /* Responsividade fina */
+    @media (max-width:420px){
+      .desc{ padding:0 6px; }
+      .insta-btn{ padding:12px 26px; font-size:15px; }
     }
   </style>
 </head>
-
 <body>
+
   <main>
-    <h1 class="logo">DJ 👟 Multimarcas</h1>
+    <h1 class="title">DJ Multimarcas</h1>
     <p class="subtitle">Estilo, conforto e originalidade em cada passo.</p>
 
-    <p class="description">
-      Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas,
-      com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências
-      do momento, para que você caminhe com estilo e confiança.  
-      <br><br>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade
-      para escolher o par perfeito!
+    <p class="desc">
+      Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, com
+      qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências do
+      momento, para que você caminhe com estilo e confiança.
     </p>
 
-    <a id="instaBtn" href="#" target="_blank" class="button">
+    <div class="chatline" aria-hidden="true">
+      <span class="bubble">💬</span>
+      <span>Nossa equipe responde rápido — fique à vontade para perguntar sobre modelos e tamanhos.</span>
+    </div>
+
+    <a id="instaBtn" class="insta-btn" href="#" target="_blank" rel="noopener">
       Ver no Instagram 📱
     </a>
   </main>
@@ -135,14 +201,15 @@
     © 2025 DJ Multimarcas — Todos os direitos reservados.
   </footer>
 
-  <script>
-    // Redirecionamento com mensagem automática
-    document.getElementById('instaBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      const mensagem = encodeURIComponent("Olá, quais tênis tem disponível no momento?");
-      const url = `https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=${mensagem}`;
-      window.open(url, '_blank');
-    });
-  </script>
+<script>
+  // Redirecionamento com mensagem automática já codificada:
+  document.getElementById('instaBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    const mensagem = encodeURIComponent("Olá, quais tênis tem disponível no momento?");
+    // URL que você disse anteriormente — mantive os parâmetros idênticos.
+    const url = `https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=${mensagem}`;
+    window.open(url, '_blank', 'noopener');
+  });
+</script>
 </body>
 </html>

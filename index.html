@@ -1,246 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>A.D.G de Advocacia | Proteção Empresarial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Multimarcas | Loja de Tênis</title>
   <style>
-    :root{
-      --bg:#070707;
-      --panel:#0f0f0f;
-      --gold:#d4af37;
-      --muted:#cfcfcf;
-      --card-border:#232323;
-      --maxw:980px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,var(--bg) 0%, #060606 100%);
-      color: #eee;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      line-height: 1.6;
+      background: linear-gradient(180deg, #000 0%, #111 100%);
     }
 
-    .container{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:20px;
+    header {
+      padding: 40px 20px 10px;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
     }
 
-    header{
-      text-align:center;
-      padding:22px 10px 10px;
-      border-bottom:3px solid rgba(212,175,55,0.12);
-    }
-    header h1{
-      margin:0;
-      color:var(--gold);
-      font-weight:700;
-      font-size:2.25rem;
-      letter-spacing:1px;
-    }
-    header p{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:0.98rem;
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    /* Hero compact */
-    .hero{
-      background: radial-gradient(ellipse at center, rgba(212,175,55,0.02) 0%, transparent 40%);
-      padding:22px 18px;
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-      border-bottom:1px solid var(--card-border);
+    header p {
+      color: #e0e0e0;
+      font-size: 1rem;
     }
 
-    .hero .left{
-      flex:0 0 120px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .hero {
+      padding: 20px;
     }
 
-    /* key wrapper */
-    .key-wrap{
-      width:110px;
-      height:110px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(212,175,55,0.04), rgba(0,0,0,0.08));
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 18px rgba(212,175,55,0.08) inset;
+    .hero img {
+      width: 250px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      margin-top: 10px;
     }
 
-    .hero .right{
-      flex:1;
-      padding-right:4px;
+    .description {
+      max-width: 700px;
+      margin: 20px auto;
+      color: #f2f2f2;
+      font-size: 1.1rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
 
-    .hero h2{
-      margin:0 0 8px 0;
-      color:var(--gold);
-      font-size:1.5rem;
-      line-height:1.1;
-    }
-    .hero p{
-      margin:0;
-      color:#dcdcdc;
-      font-size:0.95rem;
-      max-width:780px;
+    .cta {
+      margin: 40px 0;
     }
 
-    /* services */
-    .services{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      background:var(--panel);
-      border-top:1px solid var(--card-border);
+    .insta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
     }
 
-    .service{
-      padding:16px;
-      border-radius:8px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      border:1px solid rgba(255,255,255,0.02);
+    .insta-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
     }
 
-    .service .icon{
-      width:46px;
-      height:46px;
-      flex:0 0 46px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:22px;
-      color:var(--gold);
-    }
-
-    .service h3{
-      margin:0;
-      color:var(--gold);
-      font-size:1.05rem;
-    }
-    .service p{
-      margin:6px 0 0 0;
-      color:#dcdcdc;
-      font-size:0.94rem;
-    }
-
-    /* final button - single and prominent */
-    .cta{
-      padding:20px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      border-top:1px solid var(--card-border);
-    }
-
-    .whatsapp-btn{
-      display:inline-block;
-      text-decoration:none;
-      background: linear-gradient(180deg,var(--gold), #b88b2a);
-      color:#000;
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:1.05rem;
-      box-shadow:0 8px 30px rgba(212,175,55,0.18), 0 0 10px rgba(212,175,55,0.06) inset;
-      transition:transform .16s ease, box-shadow .16s ease;
-    }
-    .whatsapp-btn:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(212,175,55,0.25) }
-
-    footer{
-      text-align:center;
-      color:#9b9b9b;
-      padding:14px 6px;
-      font-size:0.88rem;
-    }
-
-    /* responsive */
-    @media (max-width:720px){
-      .hero{ flex-direction:column; align-items:center; text-align:center; gap:14px; padding:18px }
-      .hero .left{ order:0 }
-      .hero .right{ order:1 }
-      .hero h2{ font-size:1.35rem }
-      .service{ flex-direction:column; align-items:flex-start }
-      .service .icon{ margin-bottom:4px }
+    footer {
+      color: #aaa;
+      font-size: 0.9rem;
+      padding: 20px 10px;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>A.D.G de Advocacia</h1>
-      <p>Especialistas em Proteção Empresarial e Assessoria Jurídica</p>
-    </header>
 
-    <section class="hero" aria-label="Apresentação">
-      <div class="left">
-        <div class="key-wrap" aria-hidden="true">
-          <img src="chave.png" alt="Chave dourada" style="width:100px;filter:drop-shadow(0 0 10px #d4af37);border-radius:12px;">
-        </div>
-      </div>
+  <header>
+    <h1>DJ Multimarcas</h1>
+    <p>Estilo, conforto e originalidade em cada passo.</p>
+  </header>
 
-      <div class="right">
-        <h2>“Somos a chave da proteção da sua empresa”</h2>
-        <p>Na <strong>A.D.G de Advocacia</strong>, oferecemos soluções jurídicas completas para garantir a segurança e estabilidade do seu negócio. Nosso compromisso é proteger o patrimônio da sua empresa com excelência e discrição.</p>
-      </div>
-    </section>
+  <section class="hero">
+    <img src="https://cdn.flightclub.com/TEMPLATE/340298/1.jpg" alt="Air Max TN Oreo">
+  </section>
 
-    <section class="services" aria-label="Serviços">
-      <div class="service">
-        <div class="icon" aria-hidden="true">🔒</div>
-        <div>
-          <h3>Proteção Empresarial Completa</h3>
-          <p>Consultoria jurídica especializada em prevenção de riscos empresariais, elaboração de contratos sólidos e blindagem patrimonial.</p>
-        </div>
-      </div>
+  <section class="description">
+    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, com qualidade e conforto garantidos.  
+    Trabalhamos com modelos originais e tendências do momento, para que você caminhe com estilo e confiança.</p>
 
-      <div class="service">
-        <div class="icon" aria-hidden="true">⚖️</div>
-        <div>
-          <h3>Assessoria Contínua</h3>
-          <p>Acompanhamos sua empresa em todas as etapas legais, garantindo conformidade com a legislação e segurança em cada decisão estratégica.</p>
-        </div>
-      </div>
+    <p>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade para escolher o par perfeito!</p>
+  </section>
 
-      <div class="service">
-        <div class="icon" aria-hidden="true">🛡️</div>
-        <div>
-          <h3>Auditorias e Defesa Jurídica</h3>
-          <p>Atuamos na defesa preventiva e corretiva de empresas em processos administrativos e judiciais, com discrição e agilidade.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="cta">
-      <!-- botão principal único -->
-      <a class="whatsapp-btn" target="_blank" rel="noopener noreferrer"
-         href="https://wa.me/5511932445709?text=ola%20estou%20precisando%20do%20seu%20servi%C3%A7o%20para%20prote%C3%A7%C3%A3o%20da%20minha%20empresa">
-        Fale Conosco no WhatsApp
-      </a>
-    </div>
-
-    <footer>
-      © <span id="year"></span> A.D.G de Advocacia — Todos os direitos reservados.
-    </footer>
+  <div class="cta">
+    <a class="insta-btn" target="_blank" 
+      href="https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=ola%20quais%20t%C3%AAnis%20voc%C3%AA%20tem%20na%20loja,%20no%20momento">
+      Ver no Instagram 📱
+    </a>
   </div>
 
+  <footer>
+    © <span id="year"></span> DJ Multimarcas — Todos os direitos reservados.
+  </footer>
+
   <script>
-    // atualiza ano do rodapé
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>

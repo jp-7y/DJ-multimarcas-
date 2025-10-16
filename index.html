@@ -1,123 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DJ Multimarcas | Loja de Tênis</title>
+  <title>DJ Multimarcas 👟</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
     body {
-      background: radial-gradient(circle at top left, #1a1a1a, #000);
-      color: #fff;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #FFD700;
+      font-family: 'Poppins', sans-serif;
       text-align: center;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    header {
-      padding: 40px 20px 10px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    }
-
-    header h1 {
-      font-size: 2.6rem;
+    .logo {
+      font-size: 3rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      letter-spacing: 3px;
     }
 
-    header h1 span {
-      color: #fff;
-      text-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
-    }
-
-    header p {
-      color: #e0e0e0;
-      font-size: 1.05rem;
-      margin-top: 8px;
-    }
-
-    .description {
-      max-width: 700px;
-      margin: 20px auto 15px;
-      color: #f2f2f2;
-      font-size: 1.05rem;
-      text-shadow: 0 0 12px rgba(255,255,255,0.15);
-      line-height: 1.6;
-      padding: 0 20px;
-    }
-
-    .description strong {
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255,255,255,0.25);
-    }
-
-    .cta {
-      margin: 10px 0 15px;
-    }
-
-    .insta-btn {
-      display: inline-block;
-      background: #fff;
-      color: #000;
-      font-weight: 700;
-      padding: 14px 30px;
+    .button {
+      background: linear-gradient(90deg, #FFD700, #b8860b);
+      color: black;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: 600;
       border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
       transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     }
 
-    .insta-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
     }
 
     footer {
       color: #aaa;
+      margin-top: 50px;
       font-size: 0.9rem;
-      padding: 5px 10px 15px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 10px;
-    }
-
-    @media (max-width: 720px) {
-      header h1 { font-size: 2.2rem; }
-      .insta-btn { font-size: 1rem; padding: 12px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1><span>DJ👟</span> Multimarcas</h1>
-    <p>Estilo, conforto e originalidade em cada passo.</p>
-  </header>
+  <div class="flex flex-col items-center justify-center min-h-screen space-y-10">
+    <h1 class="logo">DJ 👟 Multimarcas</h1>
+    <p class="text-lg text-gray-300 max-w-lg">
+      Os melhores tênis das marcas que você ama. Estilo, conforto e autenticidade em cada passo.
+    </p>
 
-  <section class="description">
-    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências do momento, para que você caminhe com estilo e confiança.</p>
-
-    <p>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade para escolher o par perfeito!</p>
-  </section>
-
-  <div class="cta">
-    <a class="insta-btn" target="_blank" 
-       href="https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=ola%20quais%20t%C3%AAnis%20voc%C3%AA%20tem%20na%20loja,%20no%20momento">
-       Ver no Instagram 📱
+    <a id="instaBtn" 
+       href="#" 
+       class="button"
+       target="_blank">
+       Ir para o Instagram
     </a>
+
+    <footer>
+      © 2025 DJ Multimarcas. Todos os direitos reservados.
+    </footer>
   </div>
 
-  <footer>
-    © <span id="year"></span> DJ Multimarcas — Todos os direitos reservados.
-  </footer>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('instaBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const mensagem = encodeURIComponent("Olá, quais tênis tem disponível no momento?");
+      const url = `https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=${mensagem}`;
+      window.open(url, '_blank');
+    });
   </script>
+
 </body>
 </html>

@@ -20,32 +20,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
       overflow-x: hidden;
     }
 
-    /* Fundo animado */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.07), transparent 40%),
-                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.06), transparent 40%);
-      animation: glowmove 12s linear infinite alternate;
-      z-index: 0;
-    }
-
-    @keyframes glowmove {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-10%, -10%) scale(1.1); }
-    }
-
     header {
-      position: relative;
-      z-index: 2;
       padding: 60px 20px 10px;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     }
@@ -63,9 +41,7 @@
     }
 
     .description {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
+      max-width: 720px;
       margin: 30px auto;
       color: #f2f2f2;
       font-size: 1.05rem;
@@ -74,9 +50,12 @@
       padding: 0 20px;
     }
 
+    .description strong {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.25);
+    }
+
     .cta {
-      position: relative;
-      z-index: 2;
       margin: 40px 0;
     }
 
@@ -88,7 +67,7 @@
       padding: 16px 32px;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
       transition: all 0.3s ease;
     }
 
@@ -98,8 +77,6 @@
     }
 
     footer {
-      position: relative;
-      z-index: 2;
       color: #aaa;
       font-size: 0.9rem;
       padding: 20px 10px;
@@ -116,15 +93,13 @@
 
   <header>
     <h1>DJ Multimarcas</h1>
-    <p>Seu estilo começa no conforto dos seus passos.</p>
+    <p>Estilo, conforto e originalidade em cada passo.</p>
   </header>
 
   <section class="description">
-    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis originais das marcas mais desejadas do mercado.  
-    Conforto, autenticidade e estilo reunidos em um só lugar.  
-    Nossa missão é garantir que cada cliente encontre o modelo perfeito para o seu jeito de ser.</p>
+    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências do momento, para que você caminhe com estilo e confiança.</p>
 
-    <p>💬 Atendimento ágil, atenção total e envio rápido. Sinta-se à vontade para conversar conosco — estamos prontos para te ajudar a escolher o seu próximo par!</p>
+    <p>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade para escolher o par perfeito!</p>
   </section>
 
   <div class="cta">

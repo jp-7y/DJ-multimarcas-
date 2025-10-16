@@ -5,53 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DJ Multimarcas | Loja de Tênis</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: "Poppins", sans-serif;
-      background-color: #000;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #1a1a1a, #000);
       color: #fff;
       text-align: center;
-      line-height: 1.6;
-      background: linear-gradient(180deg, #000 0%, #111 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fundo animado */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.07), transparent 40%),
+                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.06), transparent 40%);
+      animation: glowmove 12s linear infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes glowmove {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-10%, -10%) scale(1.1); }
     }
 
     header {
-      padding: 40px 20px 10px;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+      position: relative;
+      z-index: 2;
+      padding: 50px 20px 10px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
       letter-spacing: 2px;
     }
 
     header p {
       color: #e0e0e0;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin-top: 6px;
     }
 
     .hero {
+      position: relative;
+      z-index: 2;
       padding: 20px;
     }
 
     .hero img {
-      width: 250px;
+      width: 280px;
       border-radius: 16px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-      margin-top: 10px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.25);
+      margin-top: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255,255,255,0.45);
     }
 
     .description {
+      position: relative;
+      z-index: 2;
       max-width: 700px;
-      margin: 20px auto;
+      margin: 25px auto;
       color: #f2f2f2;
-      font-size: 1.1rem;
-      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+      font-size: 1.05rem;
+      text-shadow: 0 0 12px rgba(255,255,255,0.15);
+      line-height: 1.6;
     }
 
     .cta {
-      margin: 40px 0;
+      position: relative;
+      z-index: 2;
+      margin: 50px 0;
     }
 
     .insta-btn {
@@ -59,23 +100,31 @@
       background: #fff;
       color: #000;
       font-weight: 700;
-      padding: 15px 30px;
+      padding: 16px 32px;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
       transition: all 0.3s ease;
     }
 
     .insta-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
+      transform: translateY(-5px);
+      box-shadow: 0 0 45px rgba(255, 255, 255, 0.8);
     }
 
     footer {
+      position: relative;
+      z-index: 2;
       color: #aaa;
       font-size: 0.9rem;
       padding: 20px 10px;
       border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 720px) {
+      header h1 { font-size: 2.2rem; }
+      .hero img { width: 220px; }
+      .insta-btn { font-size: 1rem; padding: 14px 26px; }
     }
   </style>
 </head>
@@ -83,7 +132,7 @@
 
   <header>
     <h1>DJ Multimarcas</h1>
-    <p>Estilo, conforto e originalidade em cada passo.</p>
+    <p>Seu estilo começa no conforto dos seus passos.</p>
   </header>
 
   <section class="hero">
@@ -91,16 +140,17 @@
   </section>
 
   <section class="description">
-    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, com qualidade e conforto garantidos.  
-    Trabalhamos com modelos originais e tendências do momento, para que você caminhe com estilo e confiança.</p>
+    <p>Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis originais das marcas mais desejadas do mercado.  
+    Conforto, autenticidade e estilo reunidos em um só lugar.  
+    Nossa missão é garantir que cada cliente encontre o modelo perfeito para o seu jeito de ser.</p>
 
-    <p>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade para escolher o par perfeito!</p>
+    <p>💬 Atendimento ágil, atenção total e envio rápido. Sinta-se à vontade para conversar conosco — estamos prontos para te ajudar a escolher o seu próximo par!</p>
   </section>
 
   <div class="cta">
     <a class="insta-btn" target="_blank" 
-      href="https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=ola%20quais%20t%C3%AAnis%20voc%C3%AA%20tem%20na%20loja,%20no%20momento">
-      Ver no Instagram 📱
+       href="https://www.instagram.com/djmultimarcasdj?igsh=NHF2azAzdXNhbTBo&text=ola%20quais%20t%C3%AAnis%20voc%C3%AA%20tem%20na%20loja,%20no%20momento">
+       Ver no Instagram 📱
     </a>
   </div>
 
@@ -111,6 +161,5 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

@@ -7,21 +7,31 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* Fundo e estilo geral */
-    body {
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #FFD700;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
+    /* ======= ESTILO GERAL ======= */
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      font-family: 'Poppins', sans-serif;
+      color: #FFD700;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
-    /* Logotipo */
+    main {
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ======= LOGO ======= */
     .logo {
       font-size: 3rem;
       font-weight: 700;
@@ -31,7 +41,7 @@
       animation: fadeInDown 1.5s ease forwards;
     }
 
-    /* Subtítulo */
+    /* ======= SUBTÍTULO ======= */
     .subtitle {
       color: #ccc;
       margin-top: 0.5rem;
@@ -40,7 +50,7 @@
       animation: fadeIn 2s ease forwards 0.5s;
     }
 
-    /* Texto principal */
+    /* ======= DESCRIÇÃO ======= */
     .description {
       max-width: 600px;
       margin: 1.5rem auto;
@@ -50,7 +60,7 @@
       animation: fadeInUp 2s ease forwards 1s;
     }
 
-    /* Botão */
+    /* ======= BOTÃO ======= */
     .button {
       background: linear-gradient(90deg, #FFD700, #b8860b);
       color: black;
@@ -69,10 +79,12 @@
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
     }
 
+    /* ======= RODAPÉ ======= */
     footer {
       color: #888;
       font-size: 0.9rem;
-      margin-top: 2rem;
+      text-align: center;
+      padding: 10px 0;
       opacity: 0;
       animation: fadeIn 2s ease forwards 2s;
     }
@@ -102,15 +114,15 @@
 </head>
 
 <body>
-  <main class="flex flex-col items-center justify-center text-center px-6 py-10">
+  <main>
     <h1 class="logo">DJ 👟 Multimarcas</h1>
     <p class="subtitle">Estilo, conforto e originalidade em cada passo.</p>
 
     <p class="description">
-      Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas, 
-      com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências 
+      Na <strong>DJ Multimarcas</strong>, oferecemos os melhores tênis de marcas renomadas,
+      com qualidade e conforto garantidos. Trabalhamos com modelos originais e tendências
       do momento, para que você caminhe com estilo e confiança.  
-      <br><br>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade 
+      <br><br>💬 Nosso atendimento é personalizado e rápido — queremos que você se sinta à vontade
       para escolher o par perfeito!
     </p>
 
